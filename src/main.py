@@ -1,3 +1,14 @@
+from lessons.lesson_21 import display_lesson_21
+from lessons.lesson_20 import display_lesson_20
+from lessons.lesson_19 import display_lesson_19
+from lessons.lesson_18 import display_lesson_18
+from lessons.lesson_17 import display_lesson_17
+from lessons.lesson_16 import display_lesson_16
+from lessons.lesson_15 import display_lesson_15
+from lessons.lesson_14 import display_lesson_14
+from lessons.lesson_13 import display_lesson_13
+from lessons.lesson_12 import display_lesson_12
+from lessons.lesson_11 import display_lesson_11
 def welcome():
     print("====== PYTHON LEARNING ASSISTANT ======")
     print("Welcome! Learn Python step by step.")
@@ -22,7 +33,19 @@ def learn_python():
         "7": "Operators",
         "8": "User Input",
         "9": "Output",
-        "10": "Comments"
+        "10": "Comments",
+        "11": "Conditional statements",
+        "12": "Comparsion operators in python",
+        "13": "Logical operators in python",
+        "14": "For loops in python",
+        "15": "While loops in python",
+        "16": "Break and continue statement",
+        "17": "Nested loops python",
+        "18": "Lists in python",
+        "19": "Tuples in python",
+        "20": "Set in python",
+        "21": "Dictionaries in python"
+
     }
     for key, value in topics.items():
         print(f"{key}. {value}")
@@ -886,10 +909,43 @@ print(name)
 
 Comments explain code and help programmers understand their programs.
         """)
+    elif topic_choice == "11":
+        display_lesson_11()
+
+    elif topic_choice == "12":
+        display_lesson_12()
+
+    elif topic_choice == "13":
+        display_lesson_13()
+
+    elif topic_choice == "14":
+        display_lesson_14() 
+
+    elif topic_choice == "15":
+        display_lesson_15()
+
+    elif topic_choice == "16":
+        display_lesson_16()
+
+    elif topic_choice == "17":
+        display_lesson_17()
+
+    elif topic_choice == "18":
+        display_lesson_18()
+
+    elif topic_choice == "19":
+        display_lesson_19()
+
+    elif topic_choice == "20":
+        display_lesson_20()
+
+    elif topic_choice == "21":
+        display_lesson_21()       
+
 
 
     elif topic_choice in topics:
-        print("topic:", topic[topic_choice])
+        print("topic:", topics[topic_choice])
             
     else:
         print("Invalid topic number.")
