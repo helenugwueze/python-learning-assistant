@@ -1,0 +1,1502 @@
+[
+  {
+    "question": "Who created Python?",
+    "options": [
+      "A. James Gosling",
+      "B. Guido van Rossum",
+      "C. Dennis Ritchie",
+      "D. Brendan Eich"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "In which year was Python first released?",
+    "options": [
+      "A. 1985",
+      "B. 1995",
+      "C. 1991",
+      "D. 2000"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "What type of programming language is Python?",
+    "options": [
+      "A. High-level",
+      "B. Machine-level",
+      "C. Assembly-level",
+      "D. Binary-level"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Which of these is a major feature of Python?",
+    "options": [
+      "A. Difficult syntax",
+      "B. Readable syntax",
+      "C. Machine-only language",
+      "D. No variables"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Python is commonly used for which of these?",
+    "options": [
+      "A. Web development",
+      "B. Data analysis",
+      "C. Artificial intelligence",
+      "D. All of the above"
+    ],
+    "answer": "D"
+  },
+  {
+    "question": "What does cross-platform mean?",
+    "options": [
+      "A. Runs on one computer only",
+      "B. Works on different operating systems",
+      "C. Works without code",
+      "D. Runs only online"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "What is a variable in Python?",
+    "options": [
+      "A. A storage location for data",
+      "B. A type of loop",
+      "C. A Python error",
+      "D. A comment"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Which symbol is used to assign a value to a variable?",
+    "options": [
+      "A. ==",
+      "B. =",
+      "C. !=",
+      "D. >"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Which is a valid Python variable name?",
+    "options": [
+      "A. 2name",
+      "B. first-name",
+      "C. first_name",
+      "D. first name"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "What is the output of name = 'Helen'; print(name)?",
+    "options": [
+      "A. name",
+      "B. Helen",
+      "C. 'name'",
+      "D. Error"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Can a Python variable's value be changed?",
+    "options": [
+      "A. No",
+      "B. Only once",
+      "C. Yes",
+      "D. Only with a loop"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Which naming style uses lowercase words separated by underscores?",
+    "options": [
+      "A. camelCase",
+      "B. snake_case",
+      "C. PascalCase",
+      "D. UPPERCASE"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Which data type stores text?",
+    "options": [
+      "A. int",
+      "B. float",
+      "C. str",
+      "D. bool"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Which data type stores whole numbers?",
+    "options": [
+      "A. int",
+      "B. str",
+      "C. float",
+      "D. list"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Which data type stores decimal numbers?",
+    "options": [
+      "A. int",
+      "B. float",
+      "C. bool",
+      "D. str"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "What are the two Boolean values in Python?",
+    "options": [
+      "A. Yes and No",
+      "B. 1 and 2",
+      "C. True and False",
+      "D. On and Off"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "What is the data type of 25?",
+    "options": [
+      "A. str",
+      "B. int",
+      "C. float",
+      "D. bool"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "What is the data type of '25'?",
+    "options": [
+      "A. int",
+      "B. float",
+      "C. str",
+      "D. bool"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "What is a string in Python?",
+    "options": [
+      "A. A collection of numbers only",
+      "B. A sequence of characters",
+      "C. A loop",
+      "D. A condition"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Which symbol can be used to create a string?",
+    "options": [
+      "A. Quotes",
+      "B. Curly brackets only",
+      "C. Square brackets only",
+      "D. Greater-than symbol"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "What does len('Python') return?",
+    "options": [
+      "A. 5",
+      "B. 6",
+      "C. 7",
+      "D. 8"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Which method converts a string to uppercase?",
+    "options": [
+      "A. lower()",
+      "B. title()",
+      "C. upper()",
+      "D. strip()"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Which method removes whitespace from the beginning and end of a string?",
+    "options": [
+      "A. remove()",
+      "B. strip()",
+      "C. delete()",
+      "D. split()"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "What does 'hello'.upper() return?",
+    "options": [
+      "A. hello",
+      "B. Hello",
+      "C. HELLO",
+      "D. hELLO"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Which operator performs addition?",
+    "options": [
+      "A. +",
+      "B. -",
+      "C. *",
+      "D. /"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "What is 10 + 5?",
+    "options": [
+      "A. 10",
+      "B. 15",
+      "C. 20",
+      "D. 5"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Which operator performs multiplication?",
+    "options": [
+      "A. /",
+      "B. +",
+      "C. *",
+      "D. %"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "What is the result of 20 / 4?",
+    "options": [
+      "A. 4",
+      "B. 5.0",
+      "C. 6",
+      "D. 8"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Which operator returns the remainder of a division?",
+    "options": [
+      "A. //",
+      "B. **",
+      "C. %",
+      "D. /"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "What is the result of 2 ** 3?",
+    "options": [
+      "A. 5",
+      "B. 6",
+      "C. 8",
+      "D. 9"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "What is type conversion?",
+    "options": [
+      "A. Changing a value from one data type to another",
+      "B. Creating a loop",
+      "C. Deleting a variable",
+      "D. Printing a value"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Which function converts a value to an integer?",
+    "options": [
+      "A. str()",
+      "B. int()",
+      "C. float()",
+      "D. bool()"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "What does str(100) return?",
+    "options": [
+      "A. 100 as an integer",
+      "B. 100.0",
+      "C. '100' as a string",
+      "D. True"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Which function converts a number to a floating-point value?",
+    "options": [
+      "A. int()",
+      "B. float()",
+      "C. str()",
+      "D. list()"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "What is the result of int('25')?",
+    "options": [
+      "A. '25'",
+      "B. 25",
+      "C. 25.0",
+      "D. Error"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "What happens when int('hello') is executed?",
+    "options": [
+      "A. It returns 0",
+      "B. It returns True",
+      "C. It raises a ValueError",
+      "D. It returns 'hello'"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Which operator is used for subtraction?",
+    "options": [
+      "A. +",
+      "B. -",
+      "C. *",
+      "D. /"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Which operator checks whether two values are not equal?",
+    "options": [
+      "A. ==",
+      "B. =",
+      "C. !=",
+      "D. >="
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "What is the result of 10 > 5?",
+    "options": [
+      "A. True",
+      "B. False",
+      "C. 10",
+      "D. 5"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Which operator performs floor division?",
+    "options": [
+      "A. /",
+      "B. %",
+      "C. //",
+      "D. **"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "What does the += operator do?",
+    "options": [
+      "A. Compares two values",
+      "B. Adds a value and assigns the result",
+      "C. Divides two values",
+      "D. Removes a value"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Which operator checks whether a value is greater than or equal to another?",
+    "options": [
+      "A. <=",
+      "B. ==",
+      "C. >=",
+      "D. !="
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Which function collects information from a user?",
+    "options": [
+      "A. print()",
+      "B. input()",
+      "C. type()",
+      "D. len()"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "What data type does input() return by default?",
+    "options": [
+      "A. int",
+      "B. float",
+      "C. str",
+      "D. bool"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Which code asks the user for their name?",
+    "options": [
+      "A. print('Name')",
+      "B. input('Enter your name: ')",
+      "C. len('Name')",
+      "D. type('Name')"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "How can you convert a user's input into an integer?",
+    "options": [
+      "A. input(int)",
+      "B. int(input())",
+      "C. str(input())",
+      "D. print(input())"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Which variable can store a user's name?",
+    "options": [
+      "A. name = input()",
+      "B. name == input()",
+      "C. input == name",
+      "D. name + input"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Why should user input sometimes be validated?",
+    "options": [
+      "A. To make the program longer",
+      "B. To check that the input is acceptable",
+      "C. To delete the input",
+      "D. To stop Python"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Which function displays information on the screen?",
+    "options": [
+      "A. input()",
+      "B. print()",
+      "C. type()",
+      "D. int()"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "What is the output of print('Hello')?",
+    "options": [
+      "A. 'print'",
+      "B. Hello",
+      "C. Error",
+      "D. Nothing"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Which argument changes the separator between printed values?",
+    "options": [
+      "A. end",
+      "B. sep",
+      "C. start",
+      "D. split"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Which print() argument controls what is printed at the end?",
+    "options": [
+      "A. sep",
+      "B. stop",
+      "C. end",
+      "D. finish"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "What does print('Hello', 'World') display by default?",
+    "options": [
+      "A. HelloWorld",
+      "B. Hello World",
+      "C. Hello,World",
+      "D. Error"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Which is an example of formatted output using an f-string?",
+    "options": [
+      "A. print(f'Hello {name}')",
+      "B. print('Hello name')",
+      "C. input(f'name')",
+      "D. str.print(name)"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "What is the purpose of comments in Python?",
+    "options": [
+      "A. To explain code",
+      "B. To execute loops",
+      "C. To create variables",
+      "D. To collect input"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Which symbol starts a single-line comment?",
+    "options": [
+      "A. //",
+      "B. #",
+      "C. /*",
+      "D. --"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Does Python execute a normal comment?",
+    "options": [
+      "A. Yes",
+      "B. No",
+      "C. Only in loops",
+      "D. Only in functions"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Which is a valid Python comment?",
+    "options": [
+      "A. // This is a comment",
+      "B. # This is a comment",
+      "C. <!-- Comment -->",
+      "D. ** Comment"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Why should comments be meaningful?",
+    "options": [
+      "A. To make code harder to read",
+      "B. To help explain important code",
+      "C. To replace every variable",
+      "D. To stop errors automatically"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "What is a docstring commonly used for?",
+    "options": [
+      "A. Documenting a function, class, or module",
+      "B. Creating a number",
+      "C. Starting a loop",
+      "D. Collecting user input"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "What is the purpose of an if statement?",
+    "options": [
+      "A. To repeat code",
+      "B. To make decisions",
+      "C. To create a list",
+      "D. To define a function"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Which keyword runs code when an if condition is false?",
+    "options": [
+      "A. for",
+      "B. while",
+      "C. else",
+      "D. break"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Which keyword checks another condition after an if?",
+    "options": [
+      "A. elif",
+      "B. return",
+      "C. continue",
+      "D. def"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "What must follow an if condition before its code block?",
+    "options": [
+      "A. Semicolon",
+      "B. Colon",
+      "C. Comma",
+      "D. Full stop"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "What happens when an if condition evaluates to True?",
+    "options": [
+      "A. Its code block executes",
+      "B. Python exits",
+      "C. The program deletes the condition",
+      "D. The code is ignored"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "What is a nested if statement?",
+    "options": [
+      "A. An if statement inside another if statement",
+      "B. An if statement without a condition",
+      "C. A loop inside a list",
+      "D. A function without a name"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Which value represents a condition that is not satisfied?",
+    "options": [
+      "A. True",
+      "B. False",
+      "C. None of the above",
+      "D. Both True and False"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "What does the == operator check?",
+    "options": [
+      "A. Assignment",
+      "B. Equality",
+      "C. Addition",
+      "D. Division"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "What is the result of 8 < 3?",
+    "options": [
+      "A. True",
+      "B. False",
+      "C. 8",
+      "D. 3"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Which operator means less than or equal to?",
+    "options": [
+      "A. >=",
+      "B. <=",
+      "C. !=",
+      "D. =="
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "What is the result of 10 != 5?",
+    "options": [
+      "A. True",
+      "B. False",
+      "C. 5",
+      "D. 10"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "What type of value do comparison operators return?",
+    "options": [
+      "A. String",
+      "B. List",
+      "C. Boolean",
+      "D. Dictionary"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Which operator checks whether the left value is greater than the right value?",
+    "options": [
+      "A. <",
+      "B. >",
+      "C. ==",
+      "D. !="
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "What is the result of 7 >= 7?",
+    "options": [
+      "A. True",
+      "B. False",
+      "C. 7",
+      "D. Error"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Which logical operator requires both conditions to be True?",
+    "options": [
+      "A. or",
+      "B. not",
+      "C. and",
+      "D. in"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Which logical operator returns True when at least one condition is True?",
+    "options": [
+      "A. and",
+      "B. or",
+      "C. not",
+      "D. is"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "What does the not operator do?",
+    "options": [
+      "A. Adds two values",
+      "B. Reverses a Boolean value",
+      "C. Compares strings",
+      "D. Creates a loop"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "What is True and False?",
+    "options": [
+      "A. True",
+      "B. False",
+      "C. None",
+      "D. Error"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "What is True or False?",
+    "options": [
+      "A. True",
+      "B. False",
+      "C. None",
+      "D. Error"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "What is not True?",
+    "options": [
+      "A. True",
+      "B. False",
+      "C. None",
+      "D. 1"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Which operator is suitable when either of two conditions may be satisfied?",
+    "options": [
+      "A. and",
+      "B. or",
+      "C. not",
+      "D. =="
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "What is a for loop used for?",
+    "options": [
+      "A. Repeating code over a sequence",
+      "B. Defining a class",
+      "C. Creating comments",
+      "D. Converting strings"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Which function is commonly used to generate a sequence of numbers?",
+    "options": [
+      "A. len()",
+      "B. range()",
+      "C. input()",
+      "D. type()"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "How many numbers are generated by range(5)?",
+    "options": [
+      "A. 4",
+      "B. 5",
+      "C. 6",
+      "D. 10"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "What does range(1, 5) generate?",
+    "options": [
+      "A. 1, 2, 3, 4",
+      "B. 1, 2, 3, 4, 5",
+      "C. 0, 1, 2, 3, 4",
+      "D. 2, 3, 4, 5"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Which keyword introduces a for loop?",
+    "options": [
+      "A. repeat",
+      "B. loop",
+      "C. for",
+      "D. while"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Can a for loop iterate through a string?",
+    "options": [
+      "A. Yes",
+      "B. No",
+      "C. Only if it is empty",
+      "D. Only with an if statement"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "What does range(2, 10, 2) generate?",
+    "options": [
+      "A. 2, 4, 6, 8",
+      "B. 2, 3, 4, 5",
+      "C. 2, 4, 6, 8, 10",
+      "D. 1, 3, 5, 7"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "When does a while loop continue running?",
+    "options": [
+      "A. While its condition is True",
+      "B. Only once",
+      "C. When its condition is False",
+      "D. When the program closes"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "What is an infinite loop?",
+    "options": [
+      "A. A loop that never starts",
+      "B. A loop that does not stop on its own",
+      "C. A loop that runs once",
+      "D. A loop without code"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "What can prevent an unintended infinite while loop?",
+    "options": [
+      "A. Updating the loop condition",
+      "B. Removing all variables",
+      "C. Adding comments only",
+      "D. Printing a message"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Which keyword starts a while loop?",
+    "options": [
+      "A. for",
+      "B. def",
+      "C. while",
+      "D. if"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "What happens if a while condition is initially False?",
+    "options": [
+      "A. The loop runs forever",
+      "B. The loop body does not execute",
+      "C. Python crashes",
+      "D. The loop runs twice"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Which loop is useful when the number of repetitions is not known in advance?",
+    "options": [
+      "A. while loop",
+      "B. A comment",
+      "C. A variable",
+      "D. A string"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "What should a while loop usually do to eventually finish?",
+    "options": [
+      "A. Keep the condition unchanged",
+      "B. Update something that affects its condition",
+      "C. Remove its indentation",
+      "D. Delete its keyword"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "What does the break statement do?",
+    "options": [
+      "A. Skips one iteration",
+      "B. Exits the current loop",
+      "C. Starts a new loop",
+      "D. Defines a function"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "What does continue do inside a loop?",
+    "options": [
+      "A. Ends the entire program",
+      "B. Skips to the next iteration",
+      "C. Deletes the loop",
+      "D. Restarts Python"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Which statement completely exits a loop?",
+    "options": [
+      "A. continue",
+      "B. break",
+      "C. print",
+      "D. pass"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Which statement skips the remaining code in the current iteration?",
+    "options": [
+      "A. break",
+      "B. return",
+      "C. continue",
+      "D. input"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Can break be used inside a for loop?",
+    "options": [
+      "A. Yes",
+      "B. No",
+      "C. Only in functions",
+      "D. Only in strings"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Can continue be used inside a while loop?",
+    "options": [
+      "A. No",
+      "B. Yes",
+      "C. Only once",
+      "D. Only outside a loop"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "What happens when break executes inside a loop?",
+    "options": [
+      "A. The current loop terminates",
+      "B. The current iteration repeats",
+      "C. The loop skips one item",
+      "D. The loop condition becomes True"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "What is a nested loop?",
+    "options": [
+      "A. A loop inside another loop",
+      "B. A loop without a condition",
+      "C. A variable inside a string",
+      "D. A function without parameters"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Which loop is called the inner loop?",
+    "options": [
+      "A. The loop outside another loop",
+      "B. The loop inside another loop",
+      "C. The first function",
+      "D. The last variable"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "How many times does the inner loop run if the outer loop runs 3 times and the inner loop runs 2 times per outer iteration?",
+    "options": [
+      "A. 2",
+      "B. 3",
+      "C. 5",
+      "D. 6"
+    ],
+    "answer": "D"
+  },
+  {
+    "question": "Which task can nested loops help perform?",
+    "options": [
+      "A. Working with rows and columns",
+      "B. Defining only strings",
+      "C. Installing Python",
+      "D. Creating comments"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Can a for loop contain another for loop?",
+    "options": [
+      "A. Yes",
+      "B. No",
+      "C. Only outside a function",
+      "D. Only once in Python"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "What is commonly used to represent a grid of rows and columns?",
+    "options": [
+      "A. Nested loops",
+      "B. A single comment",
+      "C. A Boolean value",
+      "D. A string method"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "In nested loops, how many times does the inner loop normally complete for each outer iteration?",
+    "options": [
+      "A. Once only",
+      "B. Its full iteration sequence",
+      "C. Never",
+      "D. Only when the outer loop ends"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Which brackets are used to create a list?",
+    "options": [
+      "A. ()",
+      "B. {}",
+      "C. []",
+      "D. <>"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Are Python lists ordered?",
+    "options": [
+      "A. Yes",
+      "B. No",
+      "C. Only when empty",
+      "D. Only with numbers"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Which method adds an item to the end of a list?",
+    "options": [
+      "A. remove()",
+      "B. append()",
+      "C. clear()",
+      "D. pop()"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "What is the index of the first item in a Python list?",
+    "options": [
+      "A. 1",
+      "B. -1",
+      "C. 0",
+      "D. 2"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Which method removes a specific value from a list?",
+    "options": [
+      "A. append()",
+      "B. remove()",
+      "C. insert()",
+      "D. sort()"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Which function returns the number of items in a list?",
+    "options": [
+      "A. type()",
+      "B. input()",
+      "C. len()",
+      "D. str()"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "What does list[0] access?",
+    "options": [
+      "A. The first item",
+      "B. The second item",
+      "C. The last item",
+      "D. The entire list"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Which brackets are commonly used to create a tuple?",
+    "options": [
+      "A. []",
+      "B. {}",
+      "C. ()",
+      "D. <>"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Are tuples mutable?",
+    "options": [
+      "A. Yes",
+      "B. No",
+      "C. Only with strings",
+      "D. Only with numbers"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "What does immutable mean?",
+    "options": [
+      "A. Can be changed anytime",
+      "B. Cannot be changed after creation",
+      "C. Contains only numbers",
+      "D. Has no values"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Which method counts how many times a value appears in a tuple?",
+    "options": [
+      "A. append()",
+      "B. count()",
+      "C. remove()",
+      "D. add()"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "How do you create a tuple containing one item?",
+    "options": [
+      "A. (5)",
+      "B. [5]",
+      "C. (5,)",
+      "D. {5}"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Can a tuple contain different data types?",
+    "options": [
+      "A. Yes",
+      "B. No",
+      "C. Only integers",
+      "D. Only strings"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Which statement correctly describes a tuple?",
+    "options": [
+      "A. It is mutable and unordered",
+      "B. It is ordered and immutable",
+      "C. It stores only strings",
+      "D. It cannot contain numbers"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Which brackets are used to create a set literal?",
+    "options": [
+      "A. []",
+      "B. ()",
+      "C. {}",
+      "D. <>"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "What is a major feature of Python sets?",
+    "options": [
+      "A. They allow duplicate elements",
+      "B. They store unique elements",
+      "C. They use numeric indexes",
+      "D. They are always sorted"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Which method adds an item to a set?",
+    "options": [
+      "A. append()",
+      "B. insert()",
+      "C. add()",
+      "D. update_one()"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Which method removes an item from a set and raises an error if it is missing?",
+    "options": [
+      "A. discard()",
+      "B. remove()",
+      "C. clear()",
+      "D. popitem()"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Which operation combines elements from two sets?",
+    "options": [
+      "A. Union",
+      "B. Intersection",
+      "C. Difference",
+      "D. Indexing"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Which operation returns elements shared by two sets?",
+    "options": [
+      "A. Union",
+      "B. Intersection",
+      "C. Difference",
+      "D. Sorting"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "How can you create an empty set?",
+    "options": [
+      "A. {}",
+      "B. []",
+      "C. set()",
+      "D. ()"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "What does a Python dictionary store?",
+    "options": [
+      "A. Only numbers",
+      "B. Key-value pairs",
+      "C. Only strings",
+      "D. Duplicate indexes"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Which brackets are used to create a dictionary?",
+    "options": [
+      "A. []",
+      "B. ()",
+      "C. {}",
+      "D. <>"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "How do you access a dictionary value using its key?",
+    "options": [
+      "A. dictionary.key()",
+      "B. dictionary[key]",
+      "C. dictionary(key)",
+      "D. dictionary->key"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Which method returns all dictionary keys?",
+    "options": [
+      "A. values()",
+      "B. items()",
+      "C. keys()",
+      "D. getall()"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Which method returns all dictionary values?",
+    "options": [
+      "A. keys()",
+      "B. values()",
+      "C. items()",
+      "D. append()"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Which method safely retrieves a value without raising a KeyError when the key is missing?",
+    "options": [
+      "A. get()",
+      "B. popitem()",
+      "C. clear()",
+      "D. sort()"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Can dictionary values be changed after creation?",
+    "options": [
+      "A. No",
+      "B. Yes",
+      "C. Only once",
+      "D. Only if they are strings"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Which keyword defines a function in Python?",
+    "options": [
+      "A. function",
+      "B. def",
+      "C. create",
+      "D. return"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "What is a function?",
+    "options": [
+      "A. A reusable block of code",
+      "B. A type of string",
+      "C. A comment",
+      "D. A comparison operator"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "How do you call a function named welcome?",
+    "options": [
+      "A. call welcome",
+      "B. welcome[]",
+      "C. welcome()",
+      "D. def welcome"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "What is a parameter?",
+    "options": [
+      "A. A value supplied when calling a function",
+      "B. A variable listed in a function definition",
+      "C. A loop condition",
+      "D. A printed message"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "What is an argument?",
+    "options": [
+      "A. A value passed to a function when it is called",
+      "B. A function name only",
+      "C. A comment",
+      "D. A return keyword"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Which keyword sends a value back from a function?",
+    "options": [
+      "A. print",
+      "B. input",
+      "C. return",
+      "D. def"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "What happens when a function reaches the end without a return statement?",
+    "options": [
+      "A. It returns 0",
+      "B. It returns None",
+      "C. It returns False",
+      "D. It raises a SyntaxError"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "What is a list comprehension used for?",
+    "options": [
+      "A. Creating lists using a compact expression",
+      "B. Creating functions only",
+      "C. Defining classes",
+      "D. Removing Python"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "Which brackets are used in a list comprehension?",
+    "options": [
+      "A. {}",
+      "B. ()",
+      "C. []",
+      "D. <>"
+    ],
+    "answer": "C"
+  },
+  {
+    "question": "Which keyword is commonly used inside a list comprehension to iterate over items?",
+    "options": [
+      "A. while",
+      "B. for",
+      "C. def",
+      "D. return"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "What does [x * 2 for x in [1, 2, 3]] produce?",
+    "options": [
+      "A. [1, 2, 3]",
+      "B. [2, 4, 6]",
+      "C. [1, 4, 9]",
+      "D. [3, 6, 9]"
+    ],
+    "answer": "B"
+  },
+  {
+    "question": "Can a list comprehension include an if condition?",
+    "options": [
+      "A. Yes",
+      "B. No",
+      "C. Only with strings",
+      "D. Only with tuples"
+    ],
+    "answer": "A"
+  },
+  {
+    "question": "What does [x for x in range(5) if x > 2] produce?",
+    "options": [
+      "A. [0, 1, 2]",
+      "B. [2, 3, 4]",
+      "C. [3, 4]",
+      "D. [0, 1, 2, 3, 4]"
+    ],
+    "answer": "C"
+  }
+]
