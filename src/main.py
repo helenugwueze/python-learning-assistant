@@ -1,3 +1,4 @@
+from lessons.lesson_23 import display_lesson_23
 from lessons.lesson_22 import display_lesson_22
 from lessons.lesson_21 import display_lesson_21
 from lessons.lesson_20 import display_lesson_20
@@ -46,7 +47,8 @@ def learn_python():
         "19": "Tuples in python",
         "20": "Set in python",
         "21": "Dictionaries in python",
-        "22": "Function in python"
+        "22": "Function in python",
+        "23": "List comprehension in python"
 
     }
     for key, value in topics.items():
@@ -945,7 +947,9 @@ Comments explain code and help programmers understand their programs.
         display_lesson_21()
 
     elif topic_choice == "22":
-        display_lesson_22           
+        display_lesson_22 
+    elif topic_choice == "23":
+        display_lesson_23              
 
 
 
