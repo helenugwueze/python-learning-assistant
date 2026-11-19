@@ -1,13 +1,17 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from werkzeug.security import generate_password_hash, check_password_hash
 from pathlib import Path
-import sqlite3, json, contextlib, io, importlib.util
+import sqlite3, json, contextlib, io, importlib.util, os
+from dotenv import load_dotenv
+import psycopg
+from psycopg.rows import dict_row
 
 BASE = Path(__file__).resolve().parent
+load_dotenv(BASE / ".env")
 DB = BASE / 'learning_assistant.db'
 DATA = BASE / 'data'
 app = Flask(__name__)
-app.secret_key = 'change-this-to-a-long-random-secret-before-deployment'
+app.secret_key = os.environ.get("SECRET_KEY", "local-development-key")
 
 LESSON_TITLES = {
  1:'Introduction to Python',2:'Variables',3:'Data Types',4:'Strings',5:'Numbers',
@@ -131,5 +135,7 @@ def progress():
         results=con.execute('SELECT score,total,created_at FROM quiz_results WHERE user_id=? ORDER BY id DESC LIMIT 5',(uid,)).fetchall()
     return render_template('progress.html',done=[r['lesson'] for r in done],total=23,results=results)
 
-if __name__=='__main__':
-    init_db(); app.run(debug=True)
+init_db()
+
+if __name__ == '__main__':
+    app.run(debug=True)

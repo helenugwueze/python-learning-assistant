@@ -1,0 +1,16 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv/
+
+# Local database
+website/learning_assistant.db
+
+# Environment variables
+.env
+
+# Generated archive
+*.zip

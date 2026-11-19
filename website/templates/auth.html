@@ -1,1 +1,118 @@
-{% extends 'base.html' %}{% block title %}{{ mode|title }}{% endblock %}{% block content %}<section class="auth-card"><div class="pylogo large">Py</div><p class="eyebrow">PYTHON LEARNING ASSISTANT</p><h1>{{ 'Create your account' if mode=='register' else 'Welcome back' }}</h1><form method="post"><label>Username<input name="username" required autocomplete="username"></label><label>Password<input type="password" name="password" required minlength="8" autocomplete="{{ 'new-password' if mode=='register' else 'current-password' }}"></label><button class="button" type="submit">{{ 'Create account' if mode=='register' else 'Sign in' }}</button></form><p>{% if mode=='register' %}Already registered? <a href="{{ url_for('login') }}">Sign in</a>{% else %}New here? <a href="{{ url_for('register') }}">Create an account</a>{% endif %}</p></section>{% endblock %}
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ mode|title }} | Python Learning Assistant
+{% endblock %}
+
+{% block content %}
+
+<section class="auth-layout">
+
+    <div class="auth-welcome">
+        <div class="pylogo large">Py</div>
+
+        <p class="eyebrow">PYTHON LEARNING ASSISTANT</p>
+
+        <h1>Build your future with Python.</h1>
+
+        <p>
+            Learn Python step by step, practise your skills,
+            and track your progress as you grow.
+        </p>
+
+        <div class="auth-decoration">
+            <span>{ }</span>
+            <span>&lt;/&gt;</span>
+            <span>01</span>
+        </div>
+    </div>
+
+    <div class="auth-form-section">
+
+        <div class="auth-form-card">
+
+            <p class="eyebrow">
+                {{ 'GET STARTED' if mode == 'register' else 'WELCOME BACK' }}
+            </p>
+
+            <h2>
+                {{ 'Create your account' if mode == 'register' else 'Sign in to your account' }}
+            </h2>
+
+            <p class="auth-subtitle">
+                {{ 'Join us and start your Python learning journey.' if mode == 'register' else 'Continue where you left off.' }}
+            </p>
+
+            <form method="post">
+
+                <label for="username">Username</label>
+
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Enter your username"
+                    required
+                    autocomplete="username"
+                >
+
+                <label for="password">Password</label>
+
+                <div class="password-wrapper">
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        required
+                        minlength="8"
+                        autocomplete="{{ 'new-password' if mode == 'register' else 'current-password' }}"
+                    >
+
+                    <button type="button" id="togglePassword">
+                        Show
+                    </button>
+
+                </div>
+
+                <button class="button auth-submit" type="submit">
+                    {{ 'Create account' if mode == 'register' else 'Sign in' }}
+                </button>
+
+            </form>
+
+            <p class="auth-switch">
+                {% if mode == 'register' %}
+                    Already have an account?
+                    <a href="{{ url_for('login') }}">Sign in</a>
+                {% else %}
+                    Don't have an account?
+                    <a href="{{ url_for('register') }}">Create an account</a>
+                {% endif %}
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+    const password = document.getElementById("password");
+    const togglePassword = document.getElementById("togglePassword");
+
+    togglePassword.addEventListener("click", function () {
+
+        if (password.type === "password") {
+            password.type = "text";
+            togglePassword.textContent = "Hide";
+        } else {
+            password.type = "password";
+            togglePassword.textContent = "Show";
+        }
+
+    });
+</script>
+
+{% endblock %}

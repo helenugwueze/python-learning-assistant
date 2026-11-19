@@ -1,1 +1,113 @@
-{% extends 'base.html' %}{% block title %}Dashboard · Python Learning Assistant{% endblock %}{% block content %}<section class="hero"><div><p class="eyebrow">YOUR LEARNING SPACE</p><h1>Welcome back, <em>{{ username }}!</em></h1><h2>Keep learning Python, one step at a time.</h2><p>Build your skills, take quizzes, and track your progress with easy-to-follow lessons.</p><a class="button yellow" href="{{ url_for('lessons') }}">Continue Learning →</a></div><div class="hero-art">{ }<small>PYTHON</small></div></section><section class="stats"><article><b>23</b><span>Total lessons</span></article><article><b>{{ done }}</b><span>Completed</span></article><article><b>{{ percent }}%</b><span>Progress</span></article><article><b>150</b><span>Quiz questions</span></article></section><section class="cards"><a class="feature blue" href="{{ url_for('lessons') }}"><span class="icon">▤</span><h3>Lessons</h3><p>Learn Python concepts with clear explanations.</p><b>Explore Lessons →</b></a><a class="feature green" href="{{ url_for('quiz') }}"><span class="icon">♜</span><h3>Take a Quiz</h3><p>Test your knowledge with 150 questions.</p><b>Start Quiz →</b></a><a class="feature purple" href="{{ url_for('progress') }}"><span class="icon">▥</span><h3>View Progress</h3><p>Track your learning journey and achievements.</p><b>View Progress →</b></a></section><section class="panel"><h2>Continue Learning</h2><p>Choose a lesson and continue at your own pace.</p><a class="text-link" href="{{ url_for('lessons') }}">View all lessons →</a></section>{% endblock %}
+{% extends 'base.html' %}
+
+{% block title %}Dashboard | Python Learning Assistant{% endblock %}
+
+{% block content %}
+
+<section class="dashboard">
+
+    <div class="dashboard-heading">
+        <div>
+            <p class="dashboard-label">OVERVIEW</p>
+            <h1>Welcome back, {{ username }}.</h1>
+            <p>Here is an overview of your Python learning journey.</p>
+        </div>
+
+        <a class="dashboard-action" href="{{ url_for('lessons') }}">
+            Continue Learning →
+        </a>
+    </div>
+
+    <section class="dashboard-hero">
+        <div>
+            <span class="hero-tag">YOUR LEARNING JOURNEY</span>
+            <h2>Keep building your Python skills.</h2>
+            <p>
+                Every lesson brings you closer to becoming
+                a confident Python programmer.
+            </p>
+            <a href="{{ url_for('lessons') }}">Explore Lessons →</a>
+        </div>
+
+        <div class="dashboard-hero-icon">
+            &lt;/&gt;
+        </div>
+    </section>
+
+    <section class="dashboard-stats">
+
+        <article class="dashboard-card">
+            <span class="stat-icon blue-icon">▤</span>
+            <p>Total Lessons</p>
+            <h2>23</h2>
+            <small>Available lessons</small>
+        </article>
+
+        <article class="dashboard-card">
+            <span class="stat-icon green-icon">✓</span>
+            <p>Completed Lessons</p>
+            <h2>{{ done }}</h2>
+            <small>Lessons completed</small>
+        </article>
+
+        <article class="dashboard-card">
+            <span class="stat-icon purple-icon">◈</span>
+            <p>Learning Progress</p>
+            <h2>{{ percent }}%</h2>
+            <small>Overall completion</small>
+        </article>
+
+        <article class="dashboard-card">
+            <span class="stat-icon yellow-icon">♜</span>
+            <p>Quiz Questions</p>
+            <h2>150</h2>
+            <small>Available questions</small>
+        </article>
+
+    </section>
+
+    <section class="dashboard-content">
+
+        <div class="dashboard-panel learning-panel">
+            <div class="panel-heading">
+                <h3>Learning Progress</h3>
+                <span>{{ percent }}%</span>
+            </div>
+
+            <div class="dashboard-progress">
+                <div style="width: {{ percent }}%;"></div>
+            </div>
+
+            <p>You have completed {{ done }} out of 23 lessons.</p>
+
+            <a href="{{ url_for('progress') }}">View detailed progress →</a>
+        </div>
+
+        <div class="dashboard-panel activity-panel">
+            <h3>Latest Quiz Activity</h3>
+
+            {% if last_result %}
+                <h2>{{ last_result['score'] }}/{{ last_result['total'] }}</h2>
+                <p>Your latest quiz result</p>
+                <small>{{ last_result['created_at'] }}</small>
+            {% else %}
+                <p>You haven't taken a quiz yet.</p>
+                <a href="{{ url_for('quiz') }}">Take your first quiz →</a>
+            {% endif %}
+        </div>
+
+    </section>
+
+    <section class="dashboard-quick-links">
+        <h3>Quick Access</h3>
+
+        <div>
+            <a href="{{ url_for('lessons') }}">▤ My Lessons →</a>
+            <a href="{{ url_for('quiz') }}">♜ Take a Quiz →</a>
+            <a href="{{ url_for('progress') }}">▥ My Progress →</a>
+        </div>
+    </section>
+
+</section>
+
+{% endblock %}
