@@ -1,14 +1,13 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from werkzeug.security import generate_password_hash, check_password_hash
 from pathlib import Path
-import sqlite3, json, contextlib, io, importlib.util, os
+import json, contextlib, io, importlib.util, os
 from dotenv import load_dotenv
 import psycopg
 from psycopg.rows import dict_row
 
 BASE = Path(__file__).resolve().parent
 load_dotenv(BASE / ".env")
-DB = BASE / 'learning_assistant.db'
 DATA = BASE / 'data'
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "local-development-key")
@@ -115,14 +114,6 @@ def dashboard():
         last_result=result
     )
 
-
-@app.route('/lessons')
-@login_required
-def lessons():
-    uid=current_user()
-    with connect() as con: done={r['lesson'] for r in con.execute('SELECT lesson FROM completed WHERE user_id=?',(uid,))}
-    return render_template('lessons.html', lessons=LESSON_TITLES, done=done)
-
 def lesson_text(number):
     if number <= 10:
         lessons_path = DATA / 'lessons_1_10.json'
@@ -150,15 +141,25 @@ def lessons():
 
     return render_template('lessons.html', lessons=LESSON_TITLES, done=done)
 
-
-
-@app.post('/lessons/<int:number>/complete')
+@app.route('/lessons/<int:number>')
 @login_required
-def complete_lesson(number):
-    if number in LESSON_TITLES:
-        with connect() as con: con.execute('INSERT OR IGNORE INTO completed(user_id,lesson) VALUES(?,?)',(current_user(),number))
-        flash(f'Lesson {number} marked as completed.','success')
-    return redirect(url_for('lesson',number=number))
+def lesson(number):
+    if number not in LESSON_TITLES:
+        return redirect(url_for('lessons'))
+
+    with connect() as con:
+        done = con.execute(
+            'SELECT 1 FROM completed WHERE user_id = %s AND lesson = %s',
+            (current_user(), number)
+        ).fetchone()
+
+    return render_template(
+        'lesson.html',
+        number=number,
+        title=LESSON_TITLES[number],
+        content=lesson_text(number),
+        done=bool(done)
+    )
 
 @app.route('/quiz', methods=['GET','POST'])
 @login_required
@@ -166,18 +167,38 @@ def quiz():
     questions=json.loads((DATA/'questions.json').read_text())
     if request.method=='POST':
         score=sum(1 for i,q in enumerate(questions) if request.form.get(f'q{i}')==q['answer'])
-        with connect() as con: con.execute('INSERT INTO quiz_results(user_id,score,total) VALUES(?,?,?)',(current_user(),score,len(questions)))
+        with connect() as con:
+            con.execute(
+                'INSERT INTO quiz_results(user_id, score, total) VALUES(%s, %s, %s)',
+                (current_user(), score, len(questions))
+            )
+
         return render_template('quiz_result.html',score=score,total=len(questions))
     return render_template('quiz.html',questions=questions)
 
 @app.route('/progress')
 @login_required
 def progress():
-    uid=current_user()
+    uid = current_user()
+
     with connect() as con:
-        done=con.execute('SELECT lesson FROM completed WHERE user_id=? ORDER BY lesson',(uid,)).fetchall()
-        results=con.execute('SELECT score,total,created_at FROM quiz_results WHERE user_id=? ORDER BY id DESC LIMIT 5',(uid,)).fetchall()
-    return render_template('progress.html',done=[r['lesson'] for r in done],total=23,results=results)
+        done = con.execute(
+            'SELECT lesson FROM completed WHERE user_id = %s ORDER BY lesson',
+            (uid,)
+        ).fetchall()
+
+        results = con.execute(
+            'SELECT score, total, created_at FROM quiz_results WHERE user_id = %s ORDER BY id DESC LIMIT 5',
+            (uid,)
+        ).fetchall()
+
+    return render_template(
+        'progress.html',
+        done=[r['lesson'] for r in done],
+        total=23,
+        results=results
+    )
+
 
 init_db()
 
