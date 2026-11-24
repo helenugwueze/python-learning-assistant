@@ -22,13 +22,13 @@ LESSON_TITLES = {
 }
 
 def connect():
-    con=sqlite3.connect(DB); con.row_factory=sqlite3.Row; return con
+    return psycopg.connect(
+        os.environ["DATABASE_URL"],
+        row_factory=dict_row
+    )
 
 def init_db():
-    with connect() as con:
-        con.execute('''CREATE TABLE IF NOT EXISTS users(id INTEGER PRIMARY KEY, username TEXT UNIQUE NOT NULL, password TEXT NOT NULL)''')
-        con.execute('''CREATE TABLE IF NOT EXISTS completed(user_id INTEGER NOT NULL, lesson INTEGER NOT NULL, PRIMARY KEY(user_id, lesson))''')
-        con.execute('''CREATE TABLE IF NOT EXISTS quiz_results(id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL, score INTEGER NOT NULL, total INTEGER NOT NULL, created_at TEXT DEFAULT CURRENT_TIMESTAMP)''')
+    pass
 
 def current_user(): return session.get('user_id')
 
