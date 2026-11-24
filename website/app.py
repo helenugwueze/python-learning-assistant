@@ -46,25 +46,43 @@ def common(): return {'username':session.get('username')}
 @app.route('/')
 def home(): return redirect(url_for('dashboard')) if current_user() else redirect(url_for('login'))
 
+
 @app.route('/register', methods=['GET','POST'])
 def register():
-    if request.method=='POST':
-        username=request.form.get('username','').strip(); password=request.form.get('password','')
-        if not username or len(password)<8:
-            flash('Enter a username and a password with at least 8 characters.','error')
+    if request.method == 'POST':
+        username = request.form.get('username', '').strip()
+        email = request.form.get('email', '').strip().lower()
+        password = request.form.get('password', '')
+
+        if not username or not email or len(password) < 8:
+            flash('Enter a username, email, and a password with at least 8 characters.', 'error')
         else:
             try:
                 with connect() as con:
-                    con.execute('INSERT INTO users(username,password) VALUES(?,?)',(username,generate_password_hash(password)))
-                flash('Account created. Please sign in.','success'); return redirect(url_for('login'))
-            except sqlite3.IntegrityError: flash('That username is already in use.','error')
+                    con.execute(
+                        'INSERT INTO users(username, email, password) VALUES(%s, %s, %s)',
+                        (username, email, generate_password_hash(password))
+                    )
+
+                flash('Account created. Please sign in.', 'success')
+                return redirect(url_for('login'))
+
+            except psycopg.errors.UniqueViolation:
+                flash('That username or email is already in use.', 'error')
+
     return render_template('auth.html', mode='register')
+
+
 
 @app.route('/login', methods=['GET','POST'])
 def login():
     if request.method=='POST':
         username=request.form.get('username','').strip(); password=request.form.get('password','')
-        with connect() as con: user=con.execute('SELECT * FROM users WHERE username=?',(username,)).fetchone()
+        with connect() as con:
+            user = con.execute(
+                'SELECT * FROM users WHERE username = %s',
+                (username,)
+            ).fetchone()
         if user and check_password_hash(user['password'],password):
             session.clear(); session['user_id']=user['id']; session['username']=user['username']; return redirect(url_for('dashboard'))
         flash('Incorrect username or password.','error')
@@ -76,11 +94,27 @@ def logout(): session.clear(); return redirect(url_for('login'))
 @app.route('/dashboard')
 @login_required
 def dashboard():
-    uid=current_user()
+    uid = current_user()
+
     with connect() as con:
-        done=con.execute('SELECT COUNT(*) n FROM completed WHERE user_id=?',(uid,)).fetchone()['n']
-        result=con.execute('SELECT score,total,created_at FROM quiz_results WHERE user_id=? ORDER BY id DESC LIMIT 1',(uid,)).fetchone()
-    return render_template('dashboard.html', total=23, done=done, percent=round(done/23*100), last_result=result)
+        done = con.execute(
+            'SELECT COUNT(*) AS n FROM completed WHERE user_id = %s',
+            (uid,)
+        ).fetchone()['n']
+
+        result = con.execute(
+            'SELECT score, total, created_at FROM quiz_results WHERE user_id = %s ORDER BY id DESC LIMIT 1',
+            (uid,)
+        ).fetchone()
+
+    return render_template(
+        'dashboard.html',
+        total=23,
+        done=done,
+        percent=round(done/23*100),
+        last_result=result
+    )
+
 
 @app.route('/lessons')
 @login_required
@@ -101,12 +135,22 @@ def lesson_text(number):
     with contextlib.redirect_stdout(output): getattr(module,f'display_lesson_{number}')()
     return output.getvalue()
 
-@app.route('/lessons/<int:number>')
+@app.route('/lessons')
 @login_required
-def lesson(number):
-    if number not in LESSON_TITLES: return redirect(url_for('lessons'))
-    with connect() as con: done=con.execute('SELECT 1 FROM completed WHERE user_id=? AND lesson=?',(current_user(),number)).fetchone()
-    return render_template('lesson.html', number=number, title=LESSON_TITLES[number], content=lesson_text(number), done=bool(done))
+def lessons():
+    uid = current_user()
+
+    with connect() as con:
+        rows = con.execute(
+            'SELECT lesson FROM completed WHERE user_id = %s',
+            (uid,)
+        ).fetchall()
+
+    done = {row['lesson'] for row in rows}
+
+    return render_template('lessons.html', lessons=LESSON_TITLES, done=done)
+
+
 
 @app.post('/lessons/<int:number>/complete')
 @login_required
