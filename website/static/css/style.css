@@ -394,3 +394,39 @@ css
         font-size: 50px;
     }
 }
+
+/* GOOGLE SIGN-IN BUTTON */
+
+.auth-divider {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 22px 0;
+    color: #94a3b8;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #e2e8f0;
+}
+
+.google-button {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    text-align: center;
+    border: 1px solid #ccd6e5;
+    border-radius: 10px;
+    color: #10213f;
+    background: white;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.google-button:hover {
+    background: #f3f6fc;
+}

@@ -4,13 +4,27 @@ from pathlib import Path
 import json, contextlib, io, importlib.util, os
 from dotenv import load_dotenv
 import psycopg
+
+import secrets
 from psycopg.rows import dict_row
+from authlib.integrations.flask_client import OAuth
 
 BASE = Path(__file__).resolve().parent
-load_dotenv(BASE / ".env")
+load_dotenv(BASE.parent / ".env")
 DATA = BASE / 'data'
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "local-development-key")
+oauth = OAuth(app)
+
+google = oauth.register(
+    name='google',
+    client_id=os.environ.get('GOOGLE_CLIENT_ID'),
+    client_secret=os.environ.get('GOOGLE_CLIENT_SECRET'),
+    server_metadata_url='https://accounts.google.com/.well-known/openid-configuration',
+    client_kwargs={
+        'scope': 'openid email profile'
+    }
+)
 
 LESSON_TITLES = {
  1:'Introduction to Python',2:'Variables',3:'Data Types',4:'Strings',5:'Numbers',
@@ -27,7 +41,15 @@ def connect():
     )
 
 def init_db():
-    pass
+    with connect() as con:
+        con.execute("""
+            CREATE TABLE IF NOT EXISTS google_accounts (
+                id BIGSERIAL PRIMARY KEY,
+                user_id BIGINT NOT NULL REFERENCES users(id),
+                google_sub TEXT UNIQUE NOT NULL,
+                email TEXT NOT NULL
+            )
+        """)
 
 def current_user(): return session.get('user_id')
 
@@ -86,6 +108,71 @@ def login():
             session.clear(); session['user_id']=user['id']; session['username']=user['username']; return redirect(url_for('dashboard'))
         flash('Incorrect username or password.','error')
     return render_template('auth.html', mode='login')
+
+
+
+@app.route('/google/login')
+def google_login():
+    redirect_uri = url_for('google_callback', _external=True)
+    return google.authorize_redirect(redirect_uri)
+
+@app.route('/google/callback')
+def google_callback():
+    token = google.authorize_access_token()
+    user_info = token['userinfo']
+
+    if not user_info.get('email_verified'):
+        flash('Google email could not be verified.', 'error')
+        return redirect(url_for('login'))
+
+    google_sub = user_info['sub']
+    email = user_info['email'].strip().lower()
+
+    with connect() as con:
+        account = con.execute(
+            'SELECT user_id FROM google_accounts WHERE google_sub = %s',
+            (google_sub,)
+        ).fetchone()
+
+        if account:
+            user = con.execute(
+                'SELECT id, username FROM users WHERE id = %s',
+                (account['user_id'],)
+            ).fetchone()
+
+            if user:
+                session.clear()
+                session['user_id'] = user['id']
+                session['username'] = user['username']
+                return redirect(url_for('dashboard'))
+   
+        else:
+            existing_user = con.execute(
+                'SELECT id FROM users WHERE email = %s',
+                (email,)
+            ).fetchone()
+
+            base_username = email.split('@')[0]
+            username = f"{base_username}_{secrets.token_hex(3)}"
+
+
+            if existing_user:
+                flash('An account with this email already exists. Please log in normally.', 'error')
+                return redirect(url_for('login'))
+            user = con.execute(
+                'INSERT INTO users(username, email, password) VALUES(%s, %s, %s) RETURNING id, username',
+                (username, email, generate_password_hash(secrets.token_urlsafe(32)))
+            ).fetchone()    
+            con.execute(
+                'INSERT INTO google_accounts(user_id, google_sub, email) VALUES(%s, %s, %s)',
+                (user['id'], google_sub, email)
+            )            
+
+        session.clear()
+        session['user_id'] = user['id']
+        session['username'] = user['username']
+    return redirect(url_for('dashboard'))
+
 
 @app.route('/logout')
 def logout(): session.clear(); return redirect(url_for('login'))
