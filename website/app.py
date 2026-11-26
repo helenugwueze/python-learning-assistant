@@ -10,11 +10,14 @@ from psycopg.rows import dict_row
 from authlib.integrations.flask_client import OAuth
 
 BASE = Path(__file__).resolve().parent
-load_dotenv(BASE.parent / ".env")
+load_dotenv(BASE / ".env")
 DATA = BASE / 'data'
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "local-development-key")
 oauth = OAuth(app)
+
+print("Google Client ID loaded:", bool(os.environ.get("GOOGLE_CLIENT_ID")))
+print("Google Client Secret loaded:", bool(os.environ.get("GOOGLE_CLIENT_SECRET")))
 
 google = oauth.register(
     name='google',
@@ -114,7 +117,11 @@ def login():
 @app.route('/google/login')
 def google_login():
     redirect_uri = url_for('google_callback', _external=True)
-    return google.authorize_redirect(redirect_uri)
+
+    return google.authorize_redirect(
+        redirect_uri,
+        prompt='select_account'
+    )
 
 @app.route('/google/callback')
 def google_callback():
@@ -174,8 +181,17 @@ def google_callback():
     return redirect(url_for('dashboard'))
 
 
-@app.route('/logout')
-def logout(): session.clear(); return redirect(url_for('login'))
+
+@app.route('/logout', methods=['POST'])
+def logout():
+    session.clear()
+    return redirect(url_for('login'))
+
+@app.after_request
+def prevent_cache(response):
+    response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
+    response.headers["Pragma"] = "no-cache"
+    return response
 
 @app.route('/dashboard')
 @login_required
@@ -247,6 +263,21 @@ def lesson(number):
         content=lesson_text(number),
         done=bool(done)
     )
+    
+@app.route('/lessons/<int:number>/complete', methods=['POST'])
+@login_required
+def complete_lesson(number):
+    if number not in LESSON_TITLES:
+        return redirect(url_for('lessons'))
+
+    with connect() as con:
+        con.execute(
+            'INSERT INTO completed (user_id, lesson) VALUES (%s, %s) ON CONFLICT DO NOTHING',
+            (current_user(), number)
+        )
+
+    return redirect(url_for('lesson', number=number))
+
 
 @app.route('/quiz', methods=['GET','POST'])
 @login_required

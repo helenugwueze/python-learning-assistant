@@ -16,6 +16,15 @@
         <a class="dashboard-action" href="{{ url_for('lessons') }}">
             Continue Learning →
         </a>
+
+        
+        <form action="{{ url_for('logout') }}" method="POST">
+            <button type="submit" class="dashboard-logout">
+                Logout
+            </button>
+        </form>
+
+        
     </div>
 
     <section class="dashboard-hero">
